@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React State Example</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function InputExample() {
+        const [text, setText] = React.useState("");
+
+        function handleChange(event) {
+          // event.target.value has the new input value
+          setText(event.target.value);
+        }
+
+        return (
+          <div>
+            <h2>React Input State Example</h2>
+            <input 
+              type="text" 
+              value={text} 
+              onChange={handleChange} 
+              placeholder="Type something..." 
+            />
+            <p>Current state: {text}</p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<InputExample />);
+    </script>
+  </body>
+</html>

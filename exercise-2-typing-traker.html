@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+   
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+
+
+         function TypingDisplay(){
+
+            const [inputText, setInput]= React.useState('')
+
+            function saveInput (event){
+              setInput(event.target.value)
+            }
+            function exampleText (event){
+              setInput("Alice")
+            }
+
+            function reset (event){
+              setInput('')
+            }  
+
+            return (
+              <div>
+                <input 
+                    placeHolderText='Type a name here' 
+                    onChange={saveInput}
+                    value={inputText}
+                    
+                />
+                <button 
+                    onClick={reset}> 
+                    Reset
+                </button>
+
+                <button 
+                    onClick={exampleText}> 
+                    Example input 
+                </button>
+
+                <div>
+                  <p>hello: {inputText}</p>
+                </div>
+              </div>
+            );
+        }         
+        function App() {   
+
+            return(
+                <>
+                    <TypingDisplay 
+                      
+                    />
+                 
+                </>
+            )   
+        }
+
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
