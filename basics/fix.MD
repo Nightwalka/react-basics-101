@@ -11,7 +11,7 @@ This flowchart breaks down the app into three main phases: **Initial Render**, *
 ```mermaid
 graph TD
     subgraph Browser
-        A[index.html loads] --> B{ReactDOM.render(<App />)};
+        A[/ loads] --> B{ReactDOM.render(<App />)};
     end
 
     subgraph App Component (Parent)
