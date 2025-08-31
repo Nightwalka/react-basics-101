@@ -1,9 +1,9 @@
 import "./OrdersPage.css";
 import axios from "axios";
 import { useState, useEffect, Fragment } from "react";
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header";
 import dayjs from "dayjs";
-import { formatMoney } from "../utils/money";
+import { formatMoney } from "../../utils/money";
 export function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
@@ -46,7 +46,7 @@ export function OrdersPage({ cart }) {
                     return (
                       <Fragment key={orderProduct.product.id}>
                         <div className="product-image-container">
-                          <img src= {orderProduct.product.image} />
+                          <img src={orderProduct.product.image} />
                         </div>
 
                         <div className="product-details">
@@ -54,9 +54,14 @@ export function OrdersPage({ cart }) {
                             {orderProduct.product.name}
                           </div>
                           <div className="product-delivery-date">
-                            Arriving on: {dayjs(orderProduct.estimatedDeliveryTimeMS).format('MMMM D')}
+                            Arriving on:{" "}
+                            {dayjs(orderProduct.estimatedDeliveryTimeMS).format(
+                              "MMMM D"
+                            )}
                           </div>
-                          <div className="product-quantity">Quantity: {orderProduct.quantity}</div>
+                          <div className="product-quantity">
+                            Quantity: {orderProduct.quantity}
+                          </div>
                           <button className="buy-again-button button-primary">
                             <img
                               className="buy-again-icon"
@@ -78,7 +83,6 @@ export function OrdersPage({ cart }) {
                       </Fragment>
                     );
                   })}
-          
                 </div>
               </div>
             );
