@@ -4,16 +4,16 @@ import axios from 'axios'
 export function Product({product,loadCart}) {
     const [quantity,setQuantity] = useState(1)
     const addToCart = async() =>{
-            await axios.post('/api/cart-items',{
-            productId: product.id,
-            quantity
-            })
-            await loadCart()
-        }
-    const selectQuantity = (event)=>{
-            const quantitySelected  =Number( event.target.value)
-            setQuantity(quantitySelected)
-        }
+                  await axios.post('/api/cart-items',{
+                    productId: product.id,
+                    quantity
+                  })
+                  await loadCart()
+                }
+    const selectQuantity= (event)=>{
+                  const quantitySelected  =Number( event.target.value)
+                  setQuantity(quantitySelected)
+                }
     return(
         <div  className="product-container">
               <div className="product-image-container">
@@ -40,8 +40,7 @@ export function Product({product,loadCart}) {
 
               <div className="product-quantity-container">
                 <select value={quantity} onChange={
-
-                    selectQuantity()
+                    selectQuantity
                 }>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -65,9 +64,9 @@ export function Product({product,loadCart}) {
 
               <button 
                 className="add-to-cart-button button-primary"
-                onClick={
-                    addToCart()
-                }  
+                onClick={addToCart}
+                  
+                
               >
                 Add to Cart
               </button>
